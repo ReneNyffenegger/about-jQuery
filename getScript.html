@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <title>getScript()</title>
+</head>
+
+<script type="text/javascript" src="jquery.js"></script>
+
+<script type="text/javascript">
+  $(function() {
+
+    $.getScript('script.js', function(scr, st, jqXHR) {$('#script').html(scr); $('#status').html(st);})
+
+    
+//  TODO: Should use some mechanism to synchronously getScript
+//        For the time being, this alert('x') sort of makes
+//        sure that the script is loaded when the alert
+//        below tries to call sum_3.
+    alert('x');  
+
+    alert(sum_3(1,2,3));
+
+    
+  });
+</script>
+
+<body>
+
+  out: <span id='out'></span>
+
+  <p>script:<pre id='script'></pre>
+
+  <p>status:<span id='status'></span>
+
+  <p>Function defined: <span id='def'></span>
+
+</body>
+</html>
+
