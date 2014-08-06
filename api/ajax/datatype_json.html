@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>axax - json Datatype</title>
+  <script type="text/javascript" src='jQuery.js'></script>
+
+  <!--{--><style type='text/css'>
+    
+
+  </style><!--}-->
+
+  <!--{--><script type='text/javascript'>
+
+    if (typeof($) == 'undefined') {
+      alert('JQuery not found');
+    }
+
+    $(function() { 
+
+
+      $('#initiate_ajax').click(function (e) {
+
+        e.preventDefault();
+
+        $.ajax({
+           type    : 'POST',
+           url     : '/ajax-json',
+           dataType: 'json'
+        })
+        .done(function (jsonData, status_, jqXHR) {
+
+           $('#ajax-response').html(
+             'foo=' + jsonData.foo + '<br>' +
+             'bar=' + jsonData.bar + '<br>' +
+             'baz=' + jsonData.baz);
+
+        });
+
+
+      });
+
+    });
+  
+  </script><!--}-->
+
+</head>
+<body>
+
+   Be sure to have started the <code>webserver.pl</code>.
+
+   <p><a id='initiate_ajax' href='#'>Initiate Ajax Answer</a>
+
+   <div id='ajax-response'></div>
+
+</body>
+</html>

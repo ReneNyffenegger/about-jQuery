@@ -64,6 +64,13 @@ sub handle_request {
 
     }
 
+    if ($path eq '/ajax-json') { # --> datatype_json.html
+
+      print '{"foo": "this", "bar": "that", "baz": "and the other"}';
+
+      return;
+    }
+
     if ($path =~ /\.html$/) {
       serve_file (".$path", 'text/html');
       return;
