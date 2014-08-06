@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>axax - delayed answer</title>
+  <script type="text/javascript" src='jQuery.js'></script>
+
+  <!--{--><style type='text/css'>
+    
+    table {border: black solid 1px;
+         margin: 3px;
+         background-color: #eee;
+
+         height: 56px;
+         
+         }
+
+    #ajax_clicked { background-color:#f9f9f9; width: 200px}
+    #ajax_success { background-color:#cfc;}
+    #ajax_error   { background-color:#fcc;}
+    #ajax_complete{ background-color:#ccf;}
+
+  </style><!--}-->
+
+  <!--{--><script type='text/javascript'>
+
+    if (typeof($) == 'undefined') {
+      alert('JQuery not found');
+    }
+
+    $(function() { 
+
+      $('#initiate_ajax').click(function (e) {
+
+        e.preventDefault();
+
+        $.ajax({
+       
+           type: 'POST',
+           async: ! $('#synchronous').is(':checked'),
+           url:  '/ajax-delayed',
+           data: {},
+           dataType: 'text',
+           success:  function (data, status_, jqXHR) {
+
+                       $('#ajax_success').html(data);
+
+                     },
+           error:    function (jqXHR, status_, e) {
+
+                       $('#ajax_error').html(status_ + ' / ' + e);
+
+           },
+           complete: function(jqXHR, status_) {
+
+                      $('#ajax_complete').html(status_);
+           }
+
+        });
+
+        $('#ajax_clicked').html('Clicked');
+
+      });
+
+      $('#reset').click(function(e) {
+        e.preventDefault();
+
+        $('td[class="out"]').html('');
+
+      });
+
+    });
+  
+  </script><!--}-->
+
+</head>
+<body>
+
+   <a id='initiate_ajax' href='#'>Initiate Ajax Answer</a>
+
+   <table>
+
+     <tr><td>Clicked  </td><td id='ajax_clicked'  class='out'></td></tr>
+     <tr><td>Success  </td><td id='ajax_success'  class='out'></td></tr>
+     <tr><td>Error    </td><td id='ajax_error'    class='out'></td></tr>
+     <tr><td>Complete </td><td id='ajax_complete' class='out'></td></tr>
+
+   </table>
+
+   <a id='reset' href='#'>Reset</a>
+
+   <br><input type='checkbox' id='synchronous'/> Synchronous
+
+
+</body>
+</html>
