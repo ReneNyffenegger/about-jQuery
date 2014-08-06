@@ -5,7 +5,7 @@
   <title>getScript()</title>
 </head>
 
-<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="../jquery.js"></script>
 
 <script type="text/javascript">
   $(function() {
@@ -17,9 +17,9 @@
 //        For the time being, this alert('x') sort of makes
 //        sure that the script is loaded when the alert
 //        below tries to call sum_3.
-    alert('x');  
+    alert("poor man's waiting for ajax request to complete.");  
 
-    alert(sum_3(1,2,3));
+    alert("The sum is: " + sum_3(1,2,3));
 
     
   });
