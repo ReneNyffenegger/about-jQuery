@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <title>Dynamic div creation</title>
+
+  <script type="text/javascript" src='../jQuery.js'></script>
+  <script type='text/javascript'>
+
+   "use strict";
+
+    $(function() {
+
+       var newDiv = $('<div>');
+
+       newDiv.css({'width'           : '200', 
+                   'height'          : '200', 
+                   'color'           : '#705',
+                   'background-color': '#ddf'});
+
+       newDiv.html('hello');
+
+       newDiv.appendTo('body');
+
+       // more or less same thing, but a bit simpler
+
+       $('<div/>').addClass('abc').css('top', 120).css('left', 130).css('position', 'absolute').text("some text").appendTo($('body'));
+
+    });
+  
+  </script>
+
+</head>
+<body>
+
+</body>
+</html>
+
