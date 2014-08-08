@@ -53,7 +53,7 @@ sub handle_request {
       return;
     }
 
-    if ($path eq '/ajax-delayed') {
+    if ($path eq '/ajax-delayed') { # --> synchronous_vs_asynchronous.html
 
       sleep 2;
 
@@ -64,11 +64,21 @@ sub handle_request {
 
     }
 
-    if ($path eq '/ajax-json') { # --> datatype_json.html
+    if ($path eq '/ajax-json'   ) { # --> datatype_json.html
 
       print '{"foo": "this", "bar": "that", "baz": "and the other"}';
-
       return;
+    }
+
+    if ($path eq '/ajax-object' ) { # --> send_object.html
+
+      print "<b>Parameters received</b>:<br>";
+      print join "<br>", map {$_ . ': ' . $cgi->param($_) } $cgi->param;
+
+      print "<p>";
+      print "arr[1]: " . $cgi->param('arr[1]');
+      return;
+
     }
 
     if ($path =~ /\.html$/) {

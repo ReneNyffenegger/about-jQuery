@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <title>Send an object with jquery ajax</title>
+  <script type="text/javascript" src='jQuery.js'></script>
+
+  <!--{--><script type='text/javascript'>
+
+    if (typeof($) == 'undefined') {
+      alert('JQuery not found');
+    }
+
+    $(function() { 
+
+      $('#initiate_ajax').click(function (e) {
+
+        e.preventDefault();
+
+        var data_  = {num: 42,
+                      arr: ['one', 'two', 'three'],
+                      obj: {m1: 'member 1',
+                            m2:['m2', 'M2'],
+                            m3:{mm1: 'mm1',
+                                mm2: 'mm2'}
+                           }
+                      };
+
+//   TODO: Test difference with and without
+//         following line
+//      data_ = JSON.stringify(data_);
+
+//      alert(data_);
+
+        $.ajax({
+           type    : 'POST',
+           url     : '/ajax-object',
+           dataType: 'text',
+           data    :  data_
+        })
+        .done(function (data, status_, jqXHR) {
+
+           $('#ajax-response').html(data);
+
+        });
+
+
+      });
+
+    });
+  
+  </script><!--}-->
+
+</head>
+<body>
+
+   Be sure to have started the <code>webserver.pl</code>.
+
+   <p><a id='initiate_ajax' href='#'>Initiate Ajax Answer</a>
+
+   <div id='ajax-response'></div>
+
+</body>
+</html>
