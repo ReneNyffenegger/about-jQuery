@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <title>.siblings()</title>
+
+  <style type="text/css">
+    div {position: relative; margin:10px; border: 1px solid black; height: 40px; width: 370px}
+    
+    div.inner {height: 20px; float: left; width:100px}
+
+    .red   { background-color: red  }
+    .green { background-color: green}
+    .blue  { background-color: blue }
+
+    .innerst {background-color: orange}
+  </style>
+
+  <script type="text/javascript" src='../../jQuery.js'></script>
+
+  <!--{--><script type='text/javascript'>
+
+    if (typeof($) == 'undefined') {
+      alert('JQuery not found');
+    }
+
+    $(function() { 
+    
+      $('.inner').click(function(e) {
+         $(this).siblings().css('background', 'yellow');
+      });
+
+    });
+  
+  </script><!--}-->
+</head>
+<body>
+
+   Click on a colored div to turn its <code>siblings</code> to yellow!
+
+   <div>
+     <div class='inner red'></div>
+     <div class='inner green'></div>
+     <div class='inner blue'></div>
+   </div>
+
+   <div>
+     <div class='inner red'></div>
+     <div class='inner green'></div>
+     <div class='inner blue'></div>
+   </div>
+
+   <div>
+     <div class='inner red'></div>
+     <div class='inner green'></div>
+     <div class='inner blue'></div>
+   </div>
+
+   <div>
+     <div class='inner red'  ><span class='innerst'>span</span></div>
+     <div class='inner green'><span class='innerst'>span</span></div>
+     <div class='inner blue' ><span class='innerst'>span</span></div>
+   </div>
+
+</body>
+</html>
+
