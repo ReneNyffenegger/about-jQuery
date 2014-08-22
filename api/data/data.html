@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <title>.data()</title>
+  <script type="text/javascript" src='../../jQuery.js'></script>
+
+  <!--{--><script type='text/javascript'>
+
+    $(function() { 
+
+      $('.foo').data('k', 'foo data');
+      $('.bar').data('k', 'bar data');
+      $('.baz').data('k', 'baz data');
+
+
+      $('#out').html(
+        $('#a').data('k') + '<br>' +
+        $('#b').data('k') + '<br>' +
+        $('#c').data('k') );
+
+    });
+  
+  </script><!--}-->
+
+</head>
+<body>
+
+  <div id="a" class="foo bar    "></div>
+  <div id="b" class="foo     baz"></div>
+  <div id="c" class="    bar baz"></div>
+
+  <div id="out"></div>
+<!-- output:
+bar data
+baz data
+baz data
+-->
+
+</body>
+</html>
