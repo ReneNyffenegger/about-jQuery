@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <title>jQuery on</title>
+
+  <script type="text/javascript" src="../../jQuery.js"></script>
+
+  <script type="text/javascript">
+
+    var out;
+
+    function out_(id_) {
+
+      out.innerHTML += id_ + "<br>";
+      
+    }
+
+    $(function() {
+
+      out = document.getElementById('out');
+
+      $('#dif').on('keyup', function(e) { if (e.keyCode == 13) { out_($(this).attr('id')); } });
+      $('#tab').on('keyup', function(e) { if (e.keyCode == 13) { out_($(this).attr('id')); } });
+      $('#one').on('keyup', function(e) { if (e.keyCode == 13) { out_($(this).attr('id')); } });
+
+    });
+
+  </script>
+
+
+</head>
+<body>
+
+  <div id='dif'>
+
+    <table id='tab'>
+
+      <tr><td>Val 1</td><td><input id='one'></td></tr>
+      <tr><td>Val 2</td><td><input id='two'></td></tr>
+      
+    </table>
+
+  </div>
+
+  <div id='out'>
+  </div>
+
+
+
+</body>
+</html>
+
