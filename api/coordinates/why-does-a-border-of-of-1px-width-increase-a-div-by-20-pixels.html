@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<!--
+
+   http://stackoverflow.com/questions/13625352/why-does-a-border-of-of-1px-width-increase-a-div-by-20-pixels
+
+-->
+<html>
+<head>
+
+  <title>Height of divs with/without a border</title>
+
+  <script type="text/javascript" src='jquery-1.8.3.js'></script>
+  <script type='text/javascript'>
+
+    $(document).ready(function() {
+    
+    
+           alert($('#with'   ).height() + ' / ' + 
+                 $('#without').height());
+    
+    });
+  
+  </script>
+
+</head>
+<body>
+
+  <div style='width:300px;border:black 1px solid;background-color:yellow' id='with'>
+    <h1>With a border</h1>
+    bla<br>
+    bla<br>
+    bla<br>
+  </div>
+
+  <div style='width:300px;background-color:green' id='without'>
+    <h1>Without a border</h1>
+    bla<br>
+    bla<br>
+    bla<br>
+  </div>
+ 
+</body>
+</html>
